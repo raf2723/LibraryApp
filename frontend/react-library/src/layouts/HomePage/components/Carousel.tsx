@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import BookModel from "../../../models/BookModel";
 import { threadId } from "worker_threads";
 import { SpinnerLoading } from "../../utils/SpinnerLoading";
+import { Link } from "react-router-dom";
 
 export const Carousel = () => {
   const [books, setBooks] = useState<BookModel[]>([]);
@@ -18,7 +19,7 @@ export const Carousel = () => {
 
     const fetchBooks = async () => {
 
-      await delay(2000);
+      // await delay(2000);
          
       const baseUrl: string = "http://localhost:8080/api/books";
 
@@ -141,9 +142,9 @@ export const Carousel = () => {
         </div>
       </div>
       <div className="homepage-carousel-title mt-3">
-        <a className="btn btn-outline-secondary btn-lg" href="#">
+        <Link className="btn btn-outline-secondary btn-lg" to="/search">
           View More
-        </a>
+        </Link>
       </div>
     </div>
   );
